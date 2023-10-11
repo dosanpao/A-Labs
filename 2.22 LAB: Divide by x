@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int userNum;
+   int x;
+   
+   cin >> userNum;
+   cin >> x;
+   cout << userNum / x / 1.0 << ' ';
+   cout << userNum / x / x / 1.0 << ' ';
+   cout << userNum / x / x / x / 1.0 << ' ';
+   cout << userNum / x / x / x / x / 1.0 << endl;
+  
+   return 0;
+}
