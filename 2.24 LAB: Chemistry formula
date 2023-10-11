@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+   double P;
+   double V;
+   double n;
+   const double a = 3.59;
+   const double b = 0.0427;
+   const double R = 8.314;
+   double T;
+   
+   cin >> P;
+   cin >> V;
+   cin >> n;
+   
+   T = ((P + a * ((n * n) / (V * V))) * (V - n * b)) / (n * R);
+   
+   cout << T << endl;
+
+   return 0;
+}
