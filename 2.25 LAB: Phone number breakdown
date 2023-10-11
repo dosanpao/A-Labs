@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   long long phoneNumber;
+
+   cin >> phoneNumber;
+   
+   int lineNumber = phoneNumber % 10000;
+   int prefix = (phoneNumber % 10000000) / 10000;
+   int areaCode = phoneNumber / 10000000;
+   
+   cout << areaCode << '-' << prefix << '-' << lineNumber << endl;
+   
+   return 0;
+}
