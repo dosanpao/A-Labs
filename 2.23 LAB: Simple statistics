@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+
+   int num1;
+   int num2;
+   int num3;
+   int average;
+   
+   cin >> num1;
+   cin >> num2;
+   cin >> num3;
+   
+   average = (num1 + num2 + num3) / 3;
+   
+   cout << num1 + num2 + num3 << ' ' << average << ' ' << num1 * num2 * num3 << endl;
+   cout << num1 + num2 + num3 << ' ' << (num1 + num2 + num3) / 3.0 << ' ' << static_cast<long long>(num1) * num2 * num3 * 1.0 << endl;
+   cout << fabs(num1 - average) << ' ' << fabs(num2 - average) << ' ' << fabs(num3 - average) << endl;
+   
+   return 0;
+}
