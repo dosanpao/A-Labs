@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int num1, num2, num3;
+   cin >> num1;
+   cin >> num2;
+   cin >> num3;
+   int smallVal = num1;
+   
+   if (smallVal > num2) {
+      smallVal = num2;
+      if (smallVal > num3) {
+         smallVal = 3;
+      }
+   }
+   else if (smallVal > num3) {
+      smallVal = num3;
+   }
+   cout << num1 - smallVal << ' ' << num2 - smallVal << ' ' << num3 - smallVal << endl;
+
+   return 0;
+}
