@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int firstNum, lastNum;
+   cin >> firstNum;
+   lastNum = firstNum;
+   
+   if (firstNum >= 11 && firstNum <= 100) {
+      while (lastNum / 10 != lastNum % 10) { 
+         cout << lastNum << ' ';
+         lastNum--;
+      }
+      cout << lastNum << ' ' << endl;
+      cout << firstNum - lastNum << endl;
+   }
+   else {
+      cout << "Input must be 11-100" << endl;
+   }
+   
+
+   return 0;
+}
