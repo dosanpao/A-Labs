@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int num1, num2, sum1;
+   int num3, num4, sum2;
+   int x, y;
+   bool isSolution = false;
+   cin >> num1 >> num2 >> sum1;
+   cin >> num3 >> num4 >> sum2;
+   
+   for (int i = -10; i <= 10; i++) {
+      x = i;
+      for (int j = -10; j <= 10; j++) {
+         y = j;
+         if (((num1 * x) + (num2 * y) == sum1) && ((num3 * x) + (num4 * y) == sum2)) {
+            cout << x << ' ' << y << endl;
+            isSolution = true;
+            break;
+         }
+      }
+   }
+  if (!isSolution) {
+     cout << "No solution" << endl;
+  }
+   
+   return 0;
+}
