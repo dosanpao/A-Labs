@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+/* Define your function here */
+double StepsToMiles(int userSteps) {
+   return userSteps / 2000.0;
+}
+
+int main() {
+   int steps;
+   cin >> steps;
+   cout << StepsToMiles(steps) << endl;
+
+   return 0;
+}
