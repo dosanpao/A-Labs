@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int userInt;
+   int validInt = 0;
+   int invalidInt = 0;
+   int sum = 0;
+   int count = 0;
+   cin >> userInt;
+   
+   if ((userInt == 0) || (userInt < 2) || (userInt > 12)) {
+      sum = 0;
+      count = 1;
+      validInt = 0;
+      invalidInt = 0;
+   }
+   while (userInt != 0) {
+      if (userInt >= 2 && userInt <= 12) {
+         sum += userInt;
+         validInt++;
+         count++;
+      }
+      else {
+         invalidInt++;
+      }
+      cin >> userInt;
+   }
+     
+   cout << "Average: " << sum * 1.0 / count << endl;
+   cout << "Valid: " << validInt << endl;
+   cout << "Invalid: " << invalidInt << endl;
+   
+   return 0;
+}
