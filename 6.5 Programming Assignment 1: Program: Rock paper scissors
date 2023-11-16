@@ -1,0 +1,70 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+   
+   const int ROCK = 0;
+   const int PAPER = 1;
+   const int SCISSORS = 2;
+
+   int seed;
+   cin >> seed;
+   srand(seed);
+
+   string player1, player2;
+   cin >> player1 >> player2;
+   int numRounds;
+   cin >> numRounds;
+   
+   while (numRounds <= 0) {
+      cout << "Rounds must be > 0" << endl;
+      cin >> numRounds;
+   }
+   cout << player1 << " vs " << player2 << " for " << numRounds << " rounds" << endl;
+   
+   int winsP1 = 0;
+   int winsP2 = 0;
+   
+   for (int i = 0; i < numRounds; i++) {
+      int valueP1 = rand() % 3;
+      int valueP2 = rand() % 3;
+      
+      while (valueP1 == valueP2) {
+         cout << "Tie" << endl;
+         valueP1 = rand() % 3;
+         valueP2 = rand() % 3;
+      }
+    
+      if ((valueP1 == 0) && (valueP2 == 2)) {
+         cout << player1 << " wins with rock" << endl;
+         winsP1++;
+      }
+      else if ((valueP2 == 0) && (valueP1 == 2)) {
+         cout << player2 << " wins with rock" << endl;
+         winsP2++;
+      }
+      else if ((valueP1 == 1) && (valueP2 == 0)) {
+         cout << player1 << " wins with paper" << endl;
+         winsP1++;
+      }
+      else if ((valueP2 == 1) && (valueP1 == 0)) {
+         cout << player2 << " wins with paper" << endl;
+         winsP2++;
+      }
+      else if ((valueP1 == 2) && (valueP2 == 1)) {
+         cout << player1 << " wins with scissors" << endl;
+         winsP1++;
+      }
+      else {
+         cout << player2 << " wins with scissors" << endl;
+         winsP2++;
+      } 
+   }
+   
+   cout << player1 << " wins " << winsP1 << " and " << player2 << " wins " << winsP2 << endl;
+   
+   return 0;
+
+}
+
