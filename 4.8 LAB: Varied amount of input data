@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int input, average;
+   int sum = 0;
+   int count = 0;
+   int currMax = 0;
+   cin >> input;
+   
+   while (input >= 0) {
+      sum = sum + input;
+      if (input > currMax) {
+         currMax = input;
+      }
+      cin >> input;
+      count++;
+   }
+   average = sum / count / 1.0;
+   
+   cout << average << ' ' << currMax << endl;
+   
+   return 0;
+}
