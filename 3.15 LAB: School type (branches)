@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int schoolYear;
+   cin >> schoolYear;
+   
+   if (schoolYear >= 0 && schoolYear <= 5) {
+      cout << "Elementary school";
+   }
+   else if (schoolYear <= 8) {
+      cout << "Middle school";
+   }
+   else if (schoolYear <= 12) {
+      cout << "High school";
+   }
+   else if (schoolYear <= 16) {
+      cout << "College";
+   }
+   else if (schoolYear >= 17) {
+      cout << "Post-secondary";
+   }
+   else {
+      cout << "Invalid";
+   }
+   
+   cout << endl;
+
+   return 0;
+}
