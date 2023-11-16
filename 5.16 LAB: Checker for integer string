@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+   string userString;
+   bool inRange = true;
+   cin >> userString;
+
+   for (unsigned int i = 0; i < userString.size(); i++) {
+      if (isdigit(userString.at(i))) {
+         int num = userString.at(i) - '0';
+         if (num >= 0 && num <= 9) {
+         
+         }
+         else {
+            inRange = false;
+            break;
+         }
+      }
+      else {
+         inRange = false;
+         break;
+      }
+   }
+   
+   if (inRange) {
+      cout << "yes" << endl;
+   }
+   else {
+      cout << "no" << endl;
+   }
+      
+      
+   return 0;
+}
