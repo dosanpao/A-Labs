@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+   int lowNum, highNum, range;
+   cin >> lowNum >> highNum >> range;
+   int i;
+   if (highNum > lowNum && !((highNum - lowNum == 1) && (range == 0))) {
+      if (range == 0) {
+         for (i = lowNum + 1; i < highNum; i++) {
+            cout << i << ' ';
+         }
+         cout << endl;
+      }
+      else if (range == 1) {
+         for (i = lowNum; i <= highNum; i++) {
+            cout << i << ' ';
+      }
+         cout << endl;
+      }
+   }
+   else {
+      cout << "No output." << endl;
+   }
+   
+   return 0;
+}
