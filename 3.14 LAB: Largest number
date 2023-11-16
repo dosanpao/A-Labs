@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   
+   int num1, num2, num3;
+   int count = 1;
+   int largestInt;
+   cin >> num1;
+   cin >> num2;
+   cin >> num3;
+   
+   if (num1 > num2) {
+      if (num1 > num3) {
+         largestInt = num1;
+      } 
+      else if (num1 < num3) {
+         largestInt = num3;
+      }
+      else {
+         largestInt = num1;
+         count++;
+      }
+   }
+   else if (num2 > num1) {
+      if (num2 > num3) {
+         largestInt = num2;
+      }
+      else if (num2 < num3) {
+         largestInt = num3;
+      }
+      else {
+         largestInt = num2;
+         count++;
+      }
+   }
+   else {
+      count++;
+      if (num1 > num3) {
+         largestInt = num1;
+      }
+      else if (num1 < num3) {
+         largestInt = num3;
+      }
+      else {
+         largestInt = num1;
+         count++;
+      }
+   }
+   cout << largestInt << endl << count << endl;
+   
+   return 0;
+}
