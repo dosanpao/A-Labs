@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   int inputYear;
+   bool isLeapYear = false;
+   
+   cin >> inputYear;
+   cout << inputYear;
+   
+   if (inputYear % 4 == 0) { 
+      if (inputYear % 100 == 0) { 
+         if (inputYear % 400 == 0) {
+            cout << " is a leap year and is a century year.";
+         }
+         else {
+            cout << " is not a leap year and is a century year.";
+         }
+      }
+      else {
+         cout << " is a leap year and is not a century year.";
+      }
+   }
+   else {
+      if (inputYear % 100 == 0) {
+         cout << " is not a leap year and is a century year";
+      }
+      else { 
+         cout << " is not a leap year and is not a century year";
+      }     
+   }
+   cout << endl;
+   
+   return 0;
+}
