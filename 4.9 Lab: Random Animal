@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+
+   srand(0);
+   int randNum, choice; 
+   do {
+      randNum = rand() % 4 + 1;
+      if (randNum == 1) {
+         cout << "pig" << ' ';
+      }
+      else if (randNum == 2) {
+         cout << "cow" << ' ';
+      }
+      else if (randNum == 3) {
+         cout << "chicken" << ' ';
+      }
+      else {
+         cout << "horse" << ' ';
+      }
+      cin >> choice; 
+   } while (choice == 1);
+   
+   cout << endl; 
+
+   return 0;
+}
