@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+   
+   string input;
+   string newString;
+   getline(cin, input);
+   
+   for (unsigned int i = 0; i < input.size(); i++) {
+      if (!isspace(input.at(i))) {
+         newString += input.at(i);
+      }
+   }
+   cout << newString << endl;
+
+   return 0;
+}
