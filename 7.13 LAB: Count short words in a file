@@ -1,8 +1,8 @@
 #include <iostream>
-#include <fstream>   // Note this library must be included to open a file
+#include <fstream>  
 using namespace std;
 
-bool isShortWord(unsigned int size, string word) {
+bool isShortWord(unsigned int size, string word) { // Returns true if it is a short word
    return word.size() <= size;
 }
 
@@ -16,18 +16,17 @@ int main() {
    
    inFS.open(fileName);
    
-   if (!inFS.is_open()) {
+   if (!inFS.is_open()) { // Error check
       return 1;
    }
    else {
       while(!inFS.eof() && inFS >> word) {
-         if (!inFS.fail()) {
+         if (!inFS.fail()) { // Error check
             if (isShortWord(size, word)) {
                count++;
             }
          }
       }
-      inFS >> word;
       
    cout << count << endl;
    
