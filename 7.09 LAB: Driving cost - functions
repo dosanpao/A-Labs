@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double DrivingCost(double drivenMiles, double milesPerGallon, double dollarsPerGallon) {
+double DrivingCost(double drivenMiles, double milesPerGallon, double dollarsPerGallon) { // calculates driving cost
    double totalcost = (drivenMiles / milesPerGallon) * dollarsPerGallon;
    return totalcost;
 }
