@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/* Define your function here */
-int MaxMagnitude(int userVal1, int userVal2) {
+int MaxMagnitude(int userVal1, int userVal2) { // Calulates which number has the highest magnitude
    if (abs(userVal1) > abs(userVal2)) {
       return userVal1;
    }
@@ -10,7 +9,6 @@ int MaxMagnitude(int userVal1, int userVal2) {
 }
 
 int main() {
-   /* Type your code here */
    int num1, num2;
    cin >> num1 >> num2;
    cout << MaxMagnitude(num1,num2) << endl;
