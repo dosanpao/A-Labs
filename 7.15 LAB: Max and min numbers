@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-/* Define your functions here */ 
-int LargestNumber(int num1, int num2, int num3) {
+int LargestNumber(int num1, int num2, int num3) { // Calculates largest number
    int largestNum = num1;
    if (num2 > largestNum) {
       largestNum = num2;
@@ -13,7 +12,7 @@ int LargestNumber(int num1, int num2, int num3) {
    return largestNum;
 }
 
-int SmallestNumber(int num1, int num2, int num3) {
+int SmallestNumber(int num1, int num2, int num3) { // Calculates smallest number
    int smallestNum = num1;
    if (num2 < smallestNum) {
       smallestNum = num2;
@@ -25,7 +24,6 @@ int SmallestNumber(int num1, int num2, int num3) {
 }
 
 int main() {
-   /* Type your code here. Your code must call the functions.  */
    int num1, num2, num3;
    cin >> num1 >> num2 >> num3;
    
