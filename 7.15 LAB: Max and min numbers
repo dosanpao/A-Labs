@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+/* Define your functions here */ 
+int LargestNumber(int num1, int num2, int num3) {
+   int largestNum = num1;
+   if (num2 > largestNum) {
+      largestNum = num2;
+   }
+   if (num3 > largestNum) {
+      largestNum = num3;
+   }
+   return largestNum;
+}
+
+int SmallestNumber(int num1, int num2, int num3) {
+   int smallestNum = num1;
+   if (num2 < smallestNum) {
+      smallestNum = num2;
+   }
+   if (num3 < smallestNum) {
+      smallestNum = num3;
+   }
+   return smallestNum;
+}
+
+int main() {
+   /* Type your code here. Your code must call the functions.  */
+   int num1, num2, num3;
+   cin >> num1 >> num2 >> num3;
+   
+   cout << "largest: " << LargestNumber(num1, num2, num3) << endl;
+   cout << "smallest: " << SmallestNumber(num1, num2, num3) << endl;
+   
+   return 0;
+}
