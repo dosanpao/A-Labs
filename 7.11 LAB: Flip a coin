@@ -2,7 +2,7 @@
 #include <cstdlib>
 using namespace std;
 
-string HeadsOrTails() { // returns "heads" or "tails"
+string HeadsOrTails() { // Returns "heads" or "tails"
    if (rand() % 2 == 0) {
       return "heads";
    }
