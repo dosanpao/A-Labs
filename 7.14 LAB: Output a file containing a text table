@@ -4,7 +4,6 @@ using namespace std;
 
 int main() {
 
-   /* Type your code here. */
    ofstream outFS;
    string fileName;
    cin >> fileName;
@@ -12,8 +11,8 @@ int main() {
    cin >> pairs;
    outFS.open(fileName);
    
-   if (!outFS.is_open()) {
-      cout << "error" << endl;
+   if (!outFS.is_open()) { // Error check
+      return 1;
    }
    else {
       string name, age;
