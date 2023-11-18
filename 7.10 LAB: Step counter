@@ -2,7 +2,7 @@
 using namespace std;
 
 /* Define your function here */
-double StepsToMiles(int userSteps) { // calculates miles per total steps
+double StepsToMiles(int userSteps) { // Calculates miles per total steps
    return userSteps / 2000.0;
 }
 
