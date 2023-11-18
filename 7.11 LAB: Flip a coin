@@ -2,7 +2,7 @@
 #include <cstdlib>
 using namespace std;
 
-string HeadsOrTails() {
+string HeadsOrTails() { // returns "heads" or "tails"
    if (rand() % 2 == 0) {
       return "heads";
    }
@@ -11,8 +11,8 @@ string HeadsOrTails() {
 
 int main() {
    int rounds;
-   
-   srand(2);  // Unique seed
+   comments c++
+   srand(2); 
 
    cin >> rounds;
    for (int i = 0; i < rounds; i++) {
