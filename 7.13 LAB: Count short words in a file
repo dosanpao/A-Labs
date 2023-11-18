@@ -1,0 +1,38 @@
+#include <iostream>
+#include <fstream>   // Note this library must be included to open a file
+using namespace std;
+
+bool isShortWord(unsigned int size, string word) {
+   return word.size() <= size;
+}
+
+int main() {
+   ifstream inFS;
+   int size;
+   int count = 0;
+   cin >> size;
+   string fileName, word;
+   cin >> fileName;
+   
+   inFS.open(fileName);
+   
+   if (!inFS.is_open()) {
+      return 1;
+   }
+   else {
+      while(!inFS.eof() && inFS >> word) {
+         if (!inFS.fail()) {
+            if (isShortWord(size, word)) {
+               count++;
+            }
+         }
+      }
+      inFS >> word;
+      
+   cout << count << endl;
+   
+   inFS.clear();
+   inFS.close();
+   }
+   return 0;
+}
