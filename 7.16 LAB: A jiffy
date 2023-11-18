@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-double SecondsToJiffies(double userSeconds) {
+double SecondsToJiffies(double userSeconds) { // Returns jiffies from seconds
    return userSeconds * 100;
 }
 
