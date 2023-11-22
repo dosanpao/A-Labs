@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector> 
+using namespace std;
+
+void ExactChange(int userTotal, int& numDollars, int& numQuarters, int& numDimes, int& numNickels, int& numPennies) { // Calculates change
+   numDollars = userTotal / 100;
+   userTotal = userTotal % 100;
+   numQuarters = userTotal / 25;
+   userTotal = userTotal % 25;
+   numDimes = userTotal / 10;
+   userTotal = userTotal % 10;
+   numNickels = userTotal / 5;
+   userTotal = userTotal % 5;
+   numPennies = userTotal;
+}
+
+void outputChange(string changeType, int totalChange) { // Outputs change
+   if (totalChange > 0) {
+      cout << totalChange << ' ';
+      
+      if (changeType == "penny" && totalChange != 1) {
+         cout << "pennies";
+      }
+      else if (!(totalChange == 1)) {
+         cout << changeType << 's';
+      }
+      else {
+         cout << changeType;
+      }
+      cout << endl;
+   }
+}
+   
+int main() {
+   int inputVal;
+   cin >> inputVal;
+   int numDollars, numQuarters, numDimes, numNickels, numPennies;
+
+   ExactChange(inputVal, numDollars, numQuarters, numDimes, numNickels, numPennies);
+   
+   outputChange("dollar", numDollars);
+   outputChange("quarter", numQuarters);
+   outputChange("dime", numDimes);
+   outputChange("nickel", numNickels);
+   outputChange("penny", numPennies);
+   
+   if (inputVal <= 0) {
+      cout << "no change" << endl;
+   }
+
+   return 0;
+}
