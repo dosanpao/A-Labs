@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+void RemoveSpaces(string &userString) { // Removes whitespace
+   for (unsigned int i = 0; i < userString.size(); i++) {
+      if (isspace(userString.at(i))) {
+          userString.replace(i,1,"");
+          i--;
+      }
+   }
+}
+
+int main() {
+   string sentence;
+   getline(cin, sentence);
+   
+   RemoveSpaces(sentence);
+   
+   cout << sentence << endl;
+   
+   return 0;
+}
