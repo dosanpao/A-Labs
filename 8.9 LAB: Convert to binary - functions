@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void IntegerToReverseBinary(int integerValue, string& s) { // Creates a reverse binary string from an int
+   while (integerValue > 0) {
+      s += to_string(integerValue % 2);
+      integerValue /= 2;
+   }
+}
+void PrintReverseString(const string &userString) { // Reverses a string
+   for (int i = userString.size() - 1; i >= 0; i--) {
+      cout << userString.at(i);
+   }
+   cout << endl; 
+}
+
+int main() {
+   int integerValue;
+   cin >> integerValue;
+   string userString = "";
+   
+   IntegerToReverseBinary(integerValue, userString);
+   PrintReverseString(userString);
+
+   return 0;
+}
