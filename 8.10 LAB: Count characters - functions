@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+ 
+int CountCharacters(char userChar, const string &userString) { // Counts number of characters in a string
+   int count = 0;
+   
+   for (unsigned int i = 0; i < userString.size(); i++) {
+      if (userString.at(i) == userChar) {
+         count++;
+      }
+   }
+   return count;
+}
+
+int main() {
+   char userChar;
+   string userString;
+   cin >> userChar;
+   getline(cin, userString);
+   
+   cout << CountCharacters(userChar, userString) << endl;
+
+   return 0;
+}
