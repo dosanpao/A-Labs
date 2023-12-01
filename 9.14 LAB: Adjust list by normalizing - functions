@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector> 
+using namespace std;
+
+int GetMinimumInt(const vector<int> &listInts) { // Returns minimum int of vector
+   int smallInt = listInts.at(0);
+   
+   for (unsigned int i = 1; i < listInts.size(); i++) {
+      if (listInts.at(i) < smallInt) {
+         smallInt = listInts.at(i);
+      }
+   }
+   return smallInt; 
+}
+
+int main() {
+   int numInts;
+   cin >> numInts;
+   vector<int> listInts(numInts);
+   int num;
+   int i;
+   int smallInt;
+   
+   for (i = 0; i < numInts; i++) { 
+      cin >> num;
+      listInts.at(i) = num;
+   }
+   
+   smallInt = GetMinimumInt(listInts);
+   
+   for (i = 0; i < numInts; i++) { 
+      listInts.at(i) -= smallInt;
+      cout << listInts.at(i) << ' ';
+   }
+   cout << endl;
+
+   return 0;
+}
