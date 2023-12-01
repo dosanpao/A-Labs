@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector> 
+#include <string>
+using namespace std;
+
+int GetFrequencyOfWord(const vector<string> &wordsList, string currWord) { // Returns frequency of word from a string
+   int frequency = 0;
+   
+   for (unsigned int i = 0; i < wordsList.size(); i++) {
+      if (wordsList.at(i) == currWord) {
+         frequency++;
+      }
+   }
+   return frequency;
+}
+
+int main() {
+   int numWords;
+   cin >> numWords;
+   string word;
+   vector<string> wordsList(numWords);
+   
+   for (int i = 0; i < numWords; i++) {
+      cin >> word;
+      wordsList.at(i) = word;
+   }
+   for (unsigned int i = 0; i < wordsList.size(); i++) {
+      cout << wordsList.at(i) << ' ' << GetFrequencyOfWord(wordsList, wordsList.at(i)) << endl;
+   }
+   return 0;
+}
