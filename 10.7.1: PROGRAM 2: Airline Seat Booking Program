@@ -1,0 +1,157 @@
+/*Winter2023 - PA #2*/
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool CheckIfBooked(const string& seatBooked, const vector<string>& seatsOnPlane, const vector<bool>& seatStatus); // Declares CheckIfBooked
+
+void DisplayMenu() { // Displays menu options
+   cout << "Menu options:" << endl;
+   cout << "1. Display All Seats Status:" << endl;
+   cout << "2. Total Number of Available Seats:" << endl;
+   cout << "3. Display Available Seats: " << endl; 
+   cout << "4. Book Seat:" << endl;
+   cout << "5. Cancel Seat:" << endl;
+   cout << "6. Change Seat:" << endl;
+   cout << "7. Quit:" << endl << endl;
+   cout << "Please select an option: " << endl << endl;
+}
+
+void DisplayAllSeatsStatus(const vector<string>& seatsOnPlane, const vector<bool>& seatStatus) { // Outputs seat status
+   cout << "Seat" << "\t" << "Status" << endl;
+   for (unsigned int i = 0; i < seatsOnPlane.size(); i++) {
+      cout << seatsOnPlane.at(i) << "\t" << seatStatus.at(i) << endl;
+   }
+   cout << endl;
+}
+   
+int TotalNumberOfAvailableSeats(const vector<bool>& seatStatus) { // Returns number of seats not booked
+   int numNotBooked = 0;
+   for (unsigned int i = 0; i < seatStatus.size(); i++) {
+      if (!seatStatus.at(i)) {
+         numNotBooked++;
+      }
+   }
+   return numNotBooked;
+}
+
+void DisplayAvailableSeats(const vector<string>& seatsOnPlane, const vector<bool>& seatStatus) { // Outputs all seats available
+   cout << "Available seats:" << endl;
+   for (unsigned int i = 0; i < seatStatus.size(); i++) {
+      if (!seatStatus.at(i)) {
+         cout << seatsOnPlane.at(i) << endl;
+      }
+   }
+   cout << endl;
+}
+
+void BookSeat(const string& seatBooked, const vector<string>& seatsOnPlane, vector<bool>& seatStatus) { // Books a seat (changes seatStatus)
+   bool alreadyBooked = false;
+   
+   for (unsigned int i = 0; i < seatsOnPlane.size(); i++) {
+      if (seatsOnPlane.at(i) == seatBooked) {
+         alreadyBooked = CheckIfBooked(seatBooked, seatsOnPlane, seatStatus);
+         seatStatus.at(i) = true;
+         break;
+      }
+   }
+   if (alreadyBooked) { // Outputs if seats is already booked
+      cout << "That seat is already taken." << endl;
+   }
+}
+
+void CancelSeat (const string& seatCanceled, const vector<string>& seatsOnPlane, vector<bool>& seatStatus) { // Cancels a seat (changes seatStatus)
+   for (unsigned int i = 0; i < seatsOnPlane.size(); i++) {
+      if (seatsOnPlane.at(i) == seatCanceled) {
+         seatStatus.at(i) = false;
+      }
+   }
+}
+
+void ChangeSeat(const string& seatCanceled, const string& seatBooked, const vector<string>& seatsOnPlane, vector<bool>& seatStatus) { // Cancels seat then books seat
+	 CancelSeat(seatCanceled, seatsOnPlane, seatStatus);
+   for (unsigned int i = 0; i < seatsOnPlane.size(); i++) {
+      if (seatsOnPlane.at(i) == seatBooked) {
+         seatStatus.at(i) = true;
+      }
+   }
+} 
+
+void userSeatInput(const string& action, string& input) { // Outputs prompt for user & takes input from user
+   cout << "Enter seat to " << action <<": ";
+   cin >> input;
+   cout << endl << endl;
+}
+
+bool CheckIfBooked(const string& seatBooked, const vector<string>& seatsOnPlane, const vector<bool>& seatStatus) { // Returns true if seat booked is already booked
+   for (unsigned int i = 0; i < seatsOnPlane.size(); i++) {
+      if (seatsOnPlane.at(i) == seatBooked) {
+         if (seatStatus.at(i)) {
+            return true;
+         }
+      }
+   }
+   return false;
+}
+   
+   
+int main() {
+   vector<string> seatsOnPlane;
+   char seatLetter;
+   string seatBooked;
+   string seatCanceled;
+   
+   for (int i = 1; i < 6; i++) {
+      for (int j = 0; j < 5; j++) {
+         seatLetter = 'A' + j;
+         seatsOnPlane.push_back(std::to_string(i) + seatLetter);
+      }
+   }
+   
+   vector<bool> seatStatus(seatsOnPlane.size());
+   
+   DisplayMenu();
+   
+   int choice; 
+   cin >> choice;
+   
+   while (choice != 7) {
+      if (choice == 1) {
+         DisplayAllSeatsStatus(seatsOnPlane, seatStatus);
+      }
+      else if (choice == 2) {
+         cout << "Number of available seats: " << TotalNumberOfAvailableSeats(seatStatus) << endl << endl;
+      }
+      else if (choice == 3) {
+         DisplayAvailableSeats(seatsOnPlane, seatStatus);
+      }
+      else if (choice == 4) {
+         do { // Loop will iterate until user books seat that is not already booked
+            userSeatInput("book", seatBooked);
+            if (CheckIfBooked(seatBooked, seatsOnPlane,seatStatus)) {
+                  BookSeat(seatBooked, seatsOnPlane, seatStatus);
+            }
+         } while (CheckIfBooked(seatBooked, seatsOnPlane,seatStatus));
+         BookSeat(seatBooked, seatsOnPlane, seatStatus);
+         DisplayAllSeatsStatus(seatsOnPlane, seatStatus);   
+      }
+      else if (choice == 5) {
+         userSeatInput("cancel", seatCanceled);
+         CancelSeat(seatCanceled, seatsOnPlane, seatStatus);
+         DisplayAllSeatsStatus(seatsOnPlane, seatStatus);
+      }
+      else if (choice == 6) {
+         userSeatInput("cancel", seatCanceled);
+         userSeatInput("book", seatBooked);
+         
+         ChangeSeat(seatCanceled, seatBooked, seatsOnPlane, seatStatus);
+         DisplayAllSeatsStatus(seatsOnPlane, seatStatus);
+      }
+      DisplayMenu();
+      cin >> choice;
+   }
+   return 0;
+}
